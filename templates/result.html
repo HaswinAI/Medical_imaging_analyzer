@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Prediction Result</title>
+</head>
+<body>
+    <header>
+        <h1>Prediction Result</h1>
+    </header>
+    
+    <div class="container">
+        <h2>The uploaded image is predicted as:</h2>
+        <p><strong>{{ prediction }}</strong></p>
+        
+        {% if image_url %}
+        <div class="image-container">
+            <h3>Uploaded Image:</h3>
+            <img width="40%" height="40%" src="{{ image_url }}" alt="Uploaded X-ray" style="max-width: 500px;">
+        </div>
+        {% endif %}
+
+        <!-- Medical tips based on prediction -->
+        {% if prediction == "PNEUMONIA" %}
+        <div class="tips">
+            <h3>Medical Advice for Pneumonia:</h3>
+            <ul>
+                <li>Get plenty of rest and stay hydrated.</li>
+                <li>Avoid smoking and exposure to air pollution.</li>
+                <li>Follow prescribed medications and treatments.</li>
+                <li>Maintain a healthy diet to strengthen your immune system.</li>
+                <li>Seek immediate medical attention if symptoms worsen.</li>
+            </ul>
+        </div>
+        {% else %}
+        <div class="tips">
+            <h3>General Health Tips:</h3>
+            <ul>
+                <li>Exercise regularly and maintain a healthy diet.</li>
+                <li>Practice good hygiene, like frequent hand washing.</li>
+                <li>Avoid exposure to sick individuals to prevent infections.</li>
+                <li>Get regular medical checkups.</li>
+            </ul>
+        </div>
+        {% endif %}
+        
+        <a href="/">Go back to upload another image</a>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 AI in Radiography. All rights reserved.</p>
+    </footer>
+</body>
+</html>

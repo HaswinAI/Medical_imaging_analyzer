@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Radiology - Advanced Medical Imaging Analysis</title>
+  <meta name="description" content="AI-powered solutions for pneumonia prediction, brain tumor detection, and cancer detection through medical imaging.">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="navbar-content">
+        <a href="index.html" class="navbar-logo">AI Radiology</a>
+        
+        <!-- Desktop menu -->
+        <div class="navbar-menu desktop-menu">
+          <a href="/" class="navbar-link">Home</a>
+          <a href="/pneumonia" class="navbar-link">Pneumonia Prediction</a>
+          <a href="/brain-tumor" class="navbar-link">Brain Tumor</a>
+          <a href="/cancer-detection" class="navbar-link">Cancer Detection</a>
+          <a href="/about" class="navbar-link active">About</a>
+          <button href="https://www.linkedin.com/in/haswin-raj-d-aiml-may2006/" class="btn btn-primary ml-4">Contact Us</button>
+        </div>
+        
+        <!-- Mobile menu button -->
+        <div class="mobile-menu-button">
+          <button id="menu-toggle">
+            <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+            <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon hidden">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="mobile-menu hidden">
+      <div class="container">
+        <a href="index.html" class="mobile-link">Home</a>
+        <a href="pneumonia-prediction.html" class="mobile-link">Pneumonia Prediction</a>
+        <a href="brain-tumor.html" class="mobile-link">Brain Tumor</a>
+        <a href="cancer-detection.html" class="mobile-link">Cancer Detection</a>
+        <a href="about.html" class="mobile-link">About</a>
+        <button class="btn btn-primary w-full mt-4">Contact Us</button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-pattern"></div>
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-text">
+            <h1>Revolutionizing Radiology with Artificial Intelligence</h1>
+            <p>Advanced AI solutions for accurate diagnosis of pneumonia, brain tumors, and cancer detection through medical imaging.</p>
+            <div class="hero-buttons">
+              <a href="about.html" class="btn btn-primary btn-lg">Learn More</a>
+              <a href="https://www.linkedin.com/in/haswin-raj-d-aiml-may2006/" class="btn btn-outline btn-lg">Contact Us</a>
+            </div>
+          </div>
+          <div class="hero-image">
+            <img src="static\images\logo.jpg" alt="AI-powered medical imaging">
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section class="features">
+      <div class="container">
+        <div class="section-header">
+          <h2>Our AI-Powered Solutions</h2>
+          <p>Leveraging cutting-edge artificial intelligence to enhance diagnostic accuracy and efficiency in radiology.</p>
+        </div>
+        
+        <div class="feature-cards">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <img src="static\images\suDxBdFAS2qhayEvj7VTPA.jpg" alt="Pneumonia Prediction Icon">
+            </div>
+            <h3>Pneumonia Prediction</h3>
+            <p>AI-powered analysis of chest X-rays for early and accurate pneumonia detection with high sensitivity and specificity.</p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">
+                <div class="feature-icon">
+                    <img src="static\images\kV6eKElASzeFs6ctsdYffQ.jpg" alt="Pneumonia Prediction Icon">
+                </div>
+            </div>
+            <h3>Brain Tumor Detection</h3>
+            <p>Advanced neural networks for identifying and classifying brain tumors from MRI scans with precise localization.</p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">
+                <div class="feature-icon">
+                    <img src="static\images\-U9NMdyUQ9G6UaNoSr5eoQ.jpg" alt="Pneumonia Prediction Icon">
+                </div>
+            </div>
+            <h3>Cancer Detection</h3>
+            <p>Multi-modal AI systems for detecting various types of cancer through medical imaging with high accuracy rates.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Benefits Section -->
+    <section class="benefits">
+      <div class="container">
+        <div class="section-header">
+          <h2>Why Choose AI Radiology</h2>
+          <p>Our AI solutions provide numerous benefits to healthcare providers and patients alike.</p>
+        </div>
+        
+        <div class="feature-cards">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                <line x1="18" y1="20" x2="18" y2="10"></line>
+                <line x1="12" y1="20" x2="12" y2="4"></line>
+                <line x1="6" y1="20" x2="6" y2="14"></line>
+              </svg>
+            </div>
+            <h3>Improved Accuracy</h3>
+            <p>Our AI models achieve diagnostic accuracy that matches or exceeds expert radiologists in controlled studies.</p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+            </div>
+            <h3>Faster Results</h3>
+            <p>Reduce waiting times with AI-assisted diagnosis that can analyze medical images in seconds rather than hours or days.</p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </div>
+            <h3>Enhanced Safety</h3>
+            <p>Reduce the risk of misdiagnosis with AI systems that can detect subtle patterns that might be missed by human observers.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+      <div class="container">
+        <div class="section-header">
+          <h2>Developer Team and Leadership</h2>
+          <p>Hear from radiologists and healthcare providers who have integrated our AI solutions.</p>
+        </div>
+        
+        <div class="testimonial-cards">
+          <div class="testimonial-card">
+            <div class="testimonial-header">
+              <div class="testimonial-avatar"></div>
+              <div class="testimonial-author">
+                <h4>Haswin Raj</h4>
+                <p>Senior developer</p>
+              </div>
+            </div>
+            <p class="testimonial-text">
+              "The AI Radiology platform has significantly improved our diagnostic workflow. We've seen a 30% reduction in reading time and a measurable improvement in diagnostic accuracy."
+            </p>
+          </div>
+          
+          <div class="testimonial-card">
+            <div class="testimonial-header">
+              <div class="testimonial-avatar"></div>
+              <div class="testimonial-author">
+                <h4>Gokul</h4>
+                <p>Content creater</p>
+              </div>
+            </div>
+            <p class="testimonial-text">
+              "The AI Radiology platform has significantly improved our diagnostic workflow. We've seen a 30% reduction in reading time and a measurable improvement in diagnostic accuracy."
+            </p>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-header">
+              <div class="testimonial-avatar"></div>
+              <div class="testimonial-author">
+                <h4>Barath Raj A S</h4>
+                <p>Marketing advisor</p>
+              </div>
+            </div>
+            <p class="testimonial-text">
+              "The AI Radiology platform has significantly improved our diagnostic workflow. We've seen a 30% reduction in reading time and a measurable improvement in diagnostic accuracy."
+            </p>
+          </div>
+          
+          <div class="testimonial-card">
+            <div class="testimonial-header">
+              <div class="testimonial-avatar"></div>
+              <div class="testimonial-author">
+                <h4>Freddy Charles</h4>
+                <p>Inspect developer</p>
+              </div>
+            </div>
+            <p class="testimonial-text">
+              "The AI Radiology platform has significantly improved our diagnostic workflow. We've seen a 30% reduction in reading time and a measurable improvement in diagnostic accuracy."
+            </p>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-header">
+              <div class="testimonial-avatar"></div>
+              <div class="testimonial-author">
+                <h4>Jalastine nitha</h4>
+                <p>Black Hacker</p>
+              </div>
+            </div>
+            <p class="testimonial-text">
+              "The AI Radiology platform has significantly improved our diagnostic workflow. We've seen a 30% reduction in reading time and a measurable improvement in diagnostic accuracy."
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h2>AI Radiology</h2>
+          <p>Advancing healthcare through artificial intelligence and medical imaging.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Twitter">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+              </svg>
+            </a>
+            <a href="#" aria-label="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="pneumonia-prediction.html">Pneumonia Prediction</a></li>
+            <li><a href="brain-tumor.html">Brain Tumor Detection</a></li>
+            <li><a href="cancer-detection.html">Cancer Detection</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Resources</h3>
+          <ul>
+            <li><a href="research.html">Research Papers</a></li>
+            <li><a href="case-studies.html">Case Studies</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Contact Us</h3>
+          <ul class="contact-info">
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span>Panimalar Engineering College, Chennai</span>
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+              <span>+91 8667089702</span>
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+              </svg>
+              <span>haswinraj.aiml@gmail.com</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; <span id="current-year"></span> AI Radiology. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

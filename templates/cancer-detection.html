@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cancer Detection - AI Radiology</title>
+  <meta name="description" content="AI-powered cancer detection platform that analyzes various medical imaging modalities to identify cancerous lesions with high precision.">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+</head>
+<style>
+  /* Hero Section - Under Maintenance */
+.page-hero.under-maintenance {
+  background-color: #ff5c5c; /* Bright warning red */
+  color: #fff;
+  padding: 4rem 2rem;
+  text-align: center;
+  border-top: 4px solid #b91c1c; /* Deep red */
+  border-bottom: 4px solid #b91c1c;
+  animation: pulseWarning 2s infinite;
+}
+
+.page-hero.under-maintenance h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.page-hero.under-maintenance p {
+  font-size: 1.25rem;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Optional: Attention-grabbing animation */
+@keyframes pulseWarning {
+  0% {
+    background-color: #ff5c5c;
+  }
+  50% {
+    background-color: #ff1c1c;
+  }
+  100% {
+    background-color: #ff5c5c;
+  }
+}
+
+</style>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="navbar-content">
+        <a href="index.html" class="navbar-logo">AI Radiology</a>
+        
+        <!-- Desktop menu -->
+        <div class="navbar-menu desktop-menu">
+          <a href="/" class="navbar-link">Home</a>
+          <a href="/pneumonia" class="navbar-link">Pneumonia Prediction</a>
+          <a href="/brain-tumor" class="navbar-link">Brain Tumor</a>
+          <a href="/cancer-detection" class="navbar-link">Cancer Detection</a>
+          <a href="/about" class="navbar-link active">About</a>
+          <button href="https://www.linkedin.com/in/haswin-raj-d-aiml-may2006/" class="btn btn-primary ml-4">Contact Us</button>
+        </div>
+        
+        <!-- Mobile menu button -->
+        <div class="mobile-menu-button">
+          <button id="menu-toggle">
+            <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+            <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon hidden">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="mobile-menu hidden">
+      <div class="container">
+        <a href="index.html" class="mobile-link">Home</a>
+        <a href="pneumonia-prediction.html" class="mobile-link">Pneumonia Prediction</a>
+        <a href="brain-tumor.html" class="mobile-link">Brain Tumor</a>
+        <a href="cancer-detection.html" class="mobile-link active">Cancer Detection</a>
+        <a href="about.html" class="mobile-link">About</a>
+        <button class="btn btn-primary w-full mt-4">Contact Us</button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero Section: Under Maintenance -->
+<section class="page-hero under-maintenance">
+  <div class="container">
+    <h1>⚠️ SYSTEM MAINTENANCE IN PROGRESS ⚠️</h1>
+    <p>
+      Our cancer detection platform is currently undergoing critical updates. Please check back soon.<br>
+      We are enhancing our AI models to deliver more accurate and life-saving diagnostics.
+    </p>
+  </div>
+</section>
+
+    
+    <!-- Main Content -->
+    <section class="content-section">
+      <div class="container">
+        <div class="two-column-grid">
+          <div class="column">
+            <h2>How It Works</h2>
+            <div class="process-steps">
+              <div class="process-step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                  <h3>Upload Medical Images</h3>
+                  <p>Upload CT, MRI, mammography, or other imaging studies in DICOM format.</p>
+                </div>
+              </div>
+              
+              <div class="process-step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                  <h3>Multi-modal Analysis</h3>
+                  <p>Our specialized AI models analyze the images based on the specific cancer type and imaging modality.</p>
+                </div>
+              </div>
+              
+              <div class="process-step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                  <h3>Detailed Assessment</h3>
+                  <p>Receive comprehensive reports with lesion detection, characterization, and risk assessment.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="benefits-list">
+              <h3>Key Benefits</h3>
+              <ul>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                  </svg>
+                  <span>Early detection of subtle cancerous lesions</span>
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                  </svg>
+                  <span>Reduction in false positives and unnecessary biopsies</span>
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                  </svg>
+                  <span>Standardized reporting using BI-RADS, PI-RADS, and other clinical standards</span>
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                  </svg>
+                  <span>Integration with hospital PACS and EMR systems</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="column">
+            <div class="upload-card">
+              <div class="tabs">
+                <div class="tab-list">
+                  <button class="tab-button active" data-tab="upload">Upload Images</button>
+                  <button class="tab-button" data-tab="demo">Try Demo</button>
+                </div>
+                
+                <div class="tab-content active" id="upload-tab">
+                  <div class="upload-area">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                      <path d="M6 18h8"></path>
+                      <path d="M3 22h18"></path>
+                      <path d="M14 22a7 7 0 1 0 0-14h-1"></path>
+                      <path d="M9 14h2"></path>
+                      <path d="M9 12a2 2 0 0 1 2-2V8"></path>
+                      <path d="M12 8a2 2 0 1 1 4 0v1"></path>
+                      <path d="M12 11V9.5"></path>
+                    </svg>
+                    <h3>Upload Medical Images</h3>
+                    <p>Drag and drop your medical images or click to browse</p>
+                    <button class="btn btn-primary">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="17 8 12 3 7 8"></polyline>
+                        <line x1="12" y1="3" x2="12" y2="15"></line>
+                      </svg>
+                      Select Files
+                    </button>
+                    <p class="file-info">Supported formats: DICOM, JPG, PNG (max 500MB)</p>
+                  </div>
+                </div>
+                
+                <div class="tab-content" id="demo-tab">
+                  <p>Select a cancer type and sample case to see how our AI detection works:</p>
+                  <div class="cancer-type-buttons">
+                    <button class="btn btn-outline btn-sm">
+                      <img src="https://via.placeholder.com/20" alt="Breast" class="btn-icon">
+                      Breast Cancer
+                    </button>
+                    <button class="btn btn-outline btn-sm">
+                      <img src="https://via.placeholder.com/20" alt="Lung" class="btn-icon">
+                      Lung Cancer
+                    </button>
+                    <button class="btn btn-outline btn-sm">
+                      <img src="https://via.placeholder.com/20" alt="Prostate" class="btn-icon">
+                      Prostate Cancer
+                    </button>
+                    <button class="btn btn-outline btn-sm">
+                      <img src="https://via.placeholder.com/20" alt="Colon" class="btn-icon">
+                      Colon Cancer
+                    </button>
+                  </div>
+                  
+                  <div class="sample-grid">
+                    <div class="sample-item">
+                      <img src="https://via.placeholder.com/150" alt="Sample case 1">
+                      <p>Case 1</p>
+                    </div>
+                    <div class="sample-item">
+                      <img src="https://via.placeholder.com/150" alt="Sample case 2">
+                      <p>Case 2</p>
+                    </div>
+                    <div class="sample-item">
+                      <img src="https://via.placeholder.com/150" alt="Sample case 3">
+                      <p>Case 3</p>
+                    </div>
+                    <div class="sample-item">
+                      <img src="https://via.placeholder.com/150" alt="Sample case 4">
+                      <p>Case 4</p>
+                    </div>
+                  </div>
+                  <button class="btn btn-primary w-full">Analyze Sample</button>
+                </div>
+              </div>
+            </div>
+            
+            <div class="info-box">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <div>
+                <h3>Important Information</h3>
+                <p>This tool is designed to assist healthcare professionals and should not replace clinical judgment. Always consult with a qualified medical professional for diagnosis and treatment decisions.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Cancer Types -->
+    <section class="cancer-types">
+      <div class="container">
+        <h2>Cancer Types We Detect</h2>
+        
+        <div class="cancer-type-grid">
+          <div class="cancer-type-card">
+            <div class="cancer-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                <path d="M6 18h8"></path>
+                <path d="M3 22h18"></path>
+                <path d="M14 22a7 7 0 1 0 0-14h-1"></path>
+                <path d="M9 14h2"></path>
+                <path d="M9 12a2 2 0 0 1 2-2V8"></path>
+                <path d="M12 8a2 2 0 1 1 4 0v1"></path>
+                <path d="M12 11V9.5"></path>
+              </svg>
+            </div>
+            <h3>Breast Cancer</h3>
+            <p>AI-powered analysis of mammograms and breast MRI for early detection of breast cancer.</p>
+            <div class="cancer-metrics">
+              <div>
+                <p class="metric-label">Accuracy</p>
+                <p class="metric-value">94.6%</p>
+              </div>
+              <div>
+                <p class="metric-label">Modalities</p>
+                <p class="metric-value">Mammography, Ultrasound, MRI</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="cancer-type-card">
+            <div class="cancer-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                <path d="M6 18h8"></path>
+                <path d="M3 22h18"></path>
+                <path d="M14 22a7 7 0 1 0 0-14h-1"></path>
+                <path d="M9 14h2"></path>
+                <path d="M9 12a2 2 0 0 1 2-2V8"></path>
+                <path d="M12 8a2 2 0 1 1 4 0v1"></path>
+                <path d="M12 11V9.5"></path>
+              </svg>
+            </div>
+            <h3>Lung Cancer</h3>
+            <p>Detection of lung nodules and classification of malignancy risk from CT scans.</p>
+            <div class="cancer-metrics">
+              <div>
+                <p class="metric-label">Accuracy</p>
+                <p class="metric-value">96.2%</p>
+              </div>
+              <div>
+                <p class="metric-label">Modalities</p>
+                <p class="metric-value">CT, PET-CT</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="cancer-type-card">
+            <div class="cancer-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                <path d="M6 18h8"></path>
+                <path d="M3 22h18"></path>
+                <path d="M14 22a7 7 0 1 0 0-14h-1"></path>
+                <path d="M9 14h2"></path>
+                <path d="M9 12a2 2 0 0 1 2-2V8"></path>
+                <path d="M12 8a2 2 0 1 1 4 0v1"></path>
+                <path d="M12 11V9.5"></path>
+              </svg>
+            </div>
+            <h3>Prostate Cancer</h3>
+            <p>Analysis of prostate MRI for detection and PI-RADS scoring of suspicious lesions.</p>
+            <div class="cancer-metrics">
+              <div>
+                <p class="metric-label">Accuracy</p>
+                <p class="metric-value">92.8%</p>
+              </div>
+              <div>
+                <p class="metric-label">Modalities</p>
+                <p class="metric-value">MRI, Ultrasound</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="cancer-type-card">
+            <div class="cancer-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                <path d="M6 18h8"></path>
+                <path d="M3 22h18"></path>
+                <path d="M14 22a7 7 0 1 0 0-14h-1"></path>
+                <path d="M9 14h2"></path>
+                <path d="M9 12a2 2 0 0 1 2-2V8"></path>
+                <path d="M12 8a2 2 0 1 1 4 0v1"></path>
+                <path d="M12 11V9.5"></path>
+              </svg>
+            </div>
+            <h3>Colon Cancer</h3>
+            <p>Detection of polyps and colorectal masses from CT colonography.</p>
+            <div class="cancer-metrics">
+              <div>
+                <p class="metric-label">Accuracy</p>
+                <p class="metric-value">93.5%</p>
+              </div>
+              <div>
+                <p class="metric-label">Modalities</p>
+                <p class="metric-value">CT Colonography</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="cancer-type-card">
+            <div class="cancer-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                <path d="M6 18h8"></path>
+                <path d="M3 22h18"></path>
+                <path d="M14 22a7 7 0 1 0 0-14h-1"></path>
+                <path d="M9 14h2"></path>
+                <path d="M9 12a2 2 0 0 1 2-2V8"></path>
+                <path d="M12 8a2 2 0 1 1 4 0v1"></path>
+                <path d="M12 11V9.5"></path>
+              </svg>
+            </div>
+            <h3>Skin Cancer</h3>
+            <p>Analysis of dermatological images for melanoma and other skin cancers.</p>
+            <div class="cancer-metrics">
+              <div>
+                <p class="metric-label">Accuracy</p>
+                <p class="metric-value">95.1%</p>
+              </div>
+              <div>
+                <p class="metric-label">Modalities</p>
+                <p class="metric-value">Dermoscopy, Clinical Photography</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="cancer-type-card">
+            <div class="cancer-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                <path d="M6 18h8"></path>
+                <path d="M3 22h18"></path>
+                <path d="M14 22a7 7 0 1 0 0-14h-1"></path>
+                <path d="M9 14h2"></path>
+                <path d="M9 12a2 2 0 0 1 2-2V8"></path>
+                <path d="M12 8a2 2 0 1 1 4 0v1"></path>
+                <path d="M12 11V9.5"></path>
+              </svg>
+            </div>
+            <h3>Liver Cancer</h3>
+            <p>Detection and characterization of liver lesions from CT and MRI.</p>
+            <div class="cancer-metrics">
+              <div>
+                <p class="metric-label">Accuracy</p>
+                <p class="metric-value">91.7%</p>
+              </div>
+              <div>
+                <p class="metric-label">Modalities</p>
+                <p class="metric-value">CT, MRI, Ultrasound</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Technical Details -->
+    <section class="technical-section">
+      <div class="container">
+        <h2>Technical Details</h2>
+        
+        <div class="two-column-grid">
+          <div class="column">
+            <h3>AI Model Architecture</h3>
+            <p>Our cancer detection platform uses specialized deep learning models for each cancer type and imaging modality, trained on hundreds of thousands of annotated medical images.</p>
+            <ul class="check-list">
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+                <span>Ensemble of convolutional neural networks</span>
+              </li>
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+                <span>Transfer learning from large medical imaging datasets</span>
+              </li>
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+                <span>Regular updates with new clinical data</span>
+              </li>
+            </ul>
+          </div>
+          
+          <div class="column">
+            <h3>Validation & Certification</h3>
+            <p>Our AI systems have undergone rigorous clinical validation and regulatory approval:</p>
+            <ul class="check-list">
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+                <span>FDA-cleared for clinical use</span>
+              </li>
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+                <span>CE-marked as a Class IIb medical device</span>
+              </li>
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+                <span>Validated in multi-center clinical trials</span>
+              </li>
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+                <span>ISO 13485 certified development process</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Success Stories -->
+    <section class="success-stories">
+      <div class="container">
+        <h2>Success Stories</h2>
+        
+        <div class="case-study-cards">
+          <div class="case-study-card">
+            <div class="case-study-image">
+              <img src="https://via.placeholder.com/400x200" alt="Success story 1">
+            </div>
+            <div class="case-study-content">
+              <h3>Success Story 1</h3>
+              <p>How our AI cancer detection system helped identify early-stage cancer that was initially missed, leading to timely intervention and improved patient outcomes.</p>
+              <button class="btn btn-outline btn-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                  <polyline points="10 9 9 9 8 9"></polyline>
+                </svg>
+                Read Full Story
+              </button>
+            </div>
+          </div>
+          
+          <div class="case-study-card">
+            <div class="case-study-image">
+              <img src="https://via.placeholder.com/400x200" alt="Success story 2">
+            </div>
+            <div class="case-study-content">
+              <h3>Success Story 2</h3>
+              <p>How our AI cancer detection system helped identify early-stage cancer that was initially missed, leading to timely intervention and improved patient outcomes.</p>
+              <button class="btn btn-outline btn-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                  <polyline points="10 9 9 9 8 9"></polyline>
+                </svg>
+                Read Full Story
+              </button>
+            </div>
+          </div>
+          
+          <div class="case-study-card">
+            <div class="case-study-image">
+              <img src="https://via.placeholder.com/400x200" alt="Success story 3">
+            </div>
+            <div class="case-study-content">
+              <h3>Success Story 3</h3>
+              <p>How our AI cancer detection system helped identify early-stage cancer that was initially missed, leading to timely intervention and improved patient outcomes.</p>
+              <button class="btn btn-outline btn-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                  <polyline points="10 9 9 9 8 9"></polyline>
+                </svg>
+                Read Full Story
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta">
+      <div class="container">
+        <h2>Ready to Transform Cancer Detection?</h2>
+        <p>Schedule a demonstration or speak with our oncology AI specialists to learn how our cancer detection system can benefit your practice.</p>
+        <div class="cta-buttons">
+          <button class="btn btn-secondary btn-lg">Request a Demo</button>
+          <button class="btn btn-outline-white btn-lg">Contact Sales</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h2>AI Radiology</h2>
+          <p>Advancing healthcare through artificial intelligence and medical imaging.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Twitter">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+              </svg>
+            </a>
+            <a href="#" aria-label="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="pneumonia-prediction.html">Pneumonia Prediction</a></li>
+            <li><a href="brain-tumor.html">Brain Tumor Detection</a></li>
+            <li><a href="cancer-detection.html">Cancer Detection</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Resources</h3>
+          <ul>
+            <li><a href="research.html">Research Papers</a></li>
+            <li><a href="case-studies.html">Case Studies</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Contact Us</h3>
+          <ul class="contact-info">
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span>123 Medical Center Dr, Healthcare City, HC 12345</span>
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                <path d="M22 16.92v3a2 2 0   stroke-linejoin="round" class="icon">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+              <span>+1 (555) 123-4567</span>
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+              </svg>
+              <span>info@airadiology.com</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; <span id="current-year"></span> AI Radiology. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pneumonia Prediction - AI Radiology</title>
+  <meta name="description" content="AI-powered pneumonia detection system that analyzes chest X-rays with high accuracy.">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="navbar-content">
+        <a href="index.html" class="navbar-logo">AI Radiology</a>
+        
+        <!-- Desktop menu -->
+        <div class="navbar-menu desktop-menu">
+          <a href="/" class="navbar-link">Home</a>
+          <a href="/pneumonia" class="navbar-link">Pneumonia Prediction</a>
+          <a href="/brain-tumor" class="navbar-link">Brain Tumor</a>
+          <a href="/cancer-detection" class="navbar-link">Cancer Detection</a>
+          <a href="/about" class="navbar-link active">About</a>
+          <button href="https://www.linkedin.com/in/haswin-raj-d-aiml-may2006/" class="btn btn-primary ml-4">Contact Us</button>
+        </div>
+        
+        <!-- Mobile menu button -->
+        <div class="mobile-menu-button">
+          <button id="menu-toggle">
+            <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+            <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon hidden">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="mobile-menu hidden">
+      <div class="container">
+        <a href="index.html" class="mobile-link">Home</a>
+        <a href="pneumonia-prediction.html" class="mobile-link active">Pneumonia Prediction</a>
+        <a href="brain-tumor.html" class="mobile-link">Brain Tumor</a>
+        <a href="cancer-detection.html" class="mobile-link">Cancer Detection</a>
+        <a href="about.html" class="mobile-link">About</a>
+        <button class="btn btn-primary w-full mt-4">Contact Us</button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="page-hero">
+      <div class="container">
+        <h1>Pneumonia Prediction</h1>
+        <p>Our AI-powered pneumonia detection system analyzes chest X-rays to identify pneumonia with high accuracy, helping clinicians make faster and more accurate diagnoses.</p>
+      </div>
+    </section>
+    
+    <!-- Main Content -->
+    <section class="content-section">
+      <div class="container">
+        <div class="two-column-grid">
+          <div class="column">
+            <h2>How It Works</h2>
+            <div class="process-steps">
+              <div class="process-step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                  <h3>Upload Chest X-ray</h3>
+                  <p>Upload a standard PA or AP chest X-ray image in DICOM, JPG, or PNG format.</p>
+                </div>
+              </div>
+              
+              <div class="process-step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                  <h3>AI Analysis</h3>
+                  <p>Our deep learning algorithm analyzes the image, identifying patterns associated with pneumonia.</p>
+                </div>
+              </div>
+              
+              <div class="process-step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                  <h3>Results & Visualization</h3>
+                  <p>Receive a detailed report with probability scores and heatmap visualization highlighting suspicious areas.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="benefits-list">
+              <h3>Key Benefits</h3>
+              <ul>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                  </svg>
+                  <span>95% accuracy in pneumonia detection</span>
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                  </svg>
+                  <span>Results in seconds, not hours</span>
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                  </svg>
+                  <span>Differentiation between bacterial and viral pneumonia</span>
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                  </svg>
+                  <span>Integration with hospital PACS systems</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="column">
+            <div class="upload-card">
+              <div class="tabs">
+                <div class="tab-list">
+                  <button class="tab-button active" data-tab="upload">Upload X-ray</button>
+                  <button class="tab-button" data-tab="demo">Try Demo</button>
+                </div>
+                
+                <div class="tab-content active" id="upload-tab">
+                  <div class="upload-area">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                      <polyline points="17 8 12 3 7 8"></polyline>
+                      <line x1="12" y1="3" x2="12" y2="15"></line>
+                    </svg>
+                    <h3>Upload Chest X-ray</h3>
+                    <p>Drag and drop your X-ray image or click to browse</p>
+                    <section id="services">
+                      <h2>Pneumonia Detection</h2>
+                      <form action="{{ url_for('pneumonia') }}" method="POST" enctype="multipart/form-data">
+                          <input type="file" name="file" accept="image/*" required>
+                          <button type="submit">Upload and Predict</button>
+                      </form>
+                  
+                      {% if prediction %}
+                          <h3 class="{{ prediction_color }}">Prediction Result: <strong>{{ prediction }}</strong></h3>
+                      {% endif %}
+                  
+                      {% if image_url %}
+                      <div class="container">
+                          <h2>The uploaded image is predicted as:</h2>
+                          <p class="{{ prediction_color }}"><strong>{{ prediction }}</strong></p>
+                          <div class="image-container">
+                              <h3>Uploaded Image:</h3>
+                              <img width="40%" height="40%" src="{{ image_url }}" alt="Uploaded X-ray" style="max-width: 500px;">
+                          </div>
+                      </div>
+                      {% endif %}
+                  
+                      <!-- ✅ Medical Advice Based on Prediction -->
+                      {% if prediction == "PNEUMONIA DETECTED" %}
+                          <div class="advice-box red-advice">
+                              <h3>⚠️ Medical Advice:</h3>
+                              <p><strong>Please consult a doctor immediately.</strong> Pneumonia is a serious lung infection that may require antibiotics and medical attention.</p>
+                          </div>
+                      {% elif prediction == "NORMAL LUNG" %}
+                          <div class="advice-box green-advice">
+                              <h3>✅ Health Tip:</h3>
+                              <p>Your lungs appear normal. Maintain a healthy lifestyle, avoid smoking, and ensure good air quality for long-term lung health.</p>
+                          </div>
+                      {% endif %}
+                  </section>
+                  
+                    <p class="file-info">Supported formats: DICOM, JPG, PNG (max 10MB)</p>
+                  </div>
+                </div>
+                
+                <div class="tab-content" id="demo-tab">
+                  <p>Select one of our sample X-rays to see how our AI pneumonia detection works:</p>
+                  <div class="sample-grid">
+                    <div class="sample-item">
+                      <img src="https://via.placeholder.com/150" alt="Sample X-ray 1">
+                      <p>Sample 1</p>
+                    </div>
+                    <div class="sample-item">
+                      <img src="https://via.placeholder.com/150" alt="Sample X-ray 2">
+                      <p>Sample 2</p>
+                    </div>
+                    <div class="sample-item">
+                      <img src="https://via.placeholder.com/150" alt="Sample X-ray 3">
+                      <p>Sample 3</p>
+                    </div>
+                    <div class="sample-item">
+                      <img src="https://via.placeholder.com/150" alt="Sample X-ray 4">
+                      <p>Sample 4</p>
+                    </div>
+                  </div>
+                  <button class="btn btn-primary w-full">Analyze Sample</button>
+                </div>
+              </div>
+            </div>
+            
+            <div class="info-box">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <div>
+                <h3>Important Information</h3>
+                <p>This tool is designed to assist healthcare professionals and should not replace clinical judgment. Always consult with a qualified medical professional for diagnosis and treatment decisions.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Technical Details -->
+    <section class="technical-section">
+      <div class="container">
+        <h2>Technical Details</h2>
+        
+        <div class="two-column-grid">
+          <div class="column">
+            <h3>AI Model Architecture</h3>
+            <p>Our pneumonia detection system uses a deep convolutional neural network (CNN) based on the DenseNet-121 architecture, fine-tuned on over 100,000 labeled chest X-rays.</p>
+            <ul class="check-list">
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+                <span>Trained on diverse patient populations</span>
+              </li>
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+                <span>Validated against expert radiologist consensus</span>
+              </li>
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+                <span>Continuous learning from new cases</span>
+              </li>
+            </ul>
+          </div>
+          
+          <div class="column">
+            <h3>Performance Metrics</h3>
+            <p>Our AI system has been rigorously tested in clinical settings with the following performance metrics:</p>
+            <div class="metrics-grid">
+              <div class="metric-card">
+                <p class="metric-label">Sensitivity</p>
+                <p class="metric-value">94.7%</p>
+              </div>
+              <div class="metric-card">
+                <p class="metric-label">Specificity</p>
+                <p class="metric-value">96.2%</p>
+              </div>
+              <div class="metric-card">
+                <p class="metric-label">Accuracy</p>
+                <p class="metric-value">95.3%</p>
+              </div>
+              <div class="metric-card">
+                <p class="metric-label">Processing Time</p>
+                <p class="metric-value">&lt;3s</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Case Studies -->
+    <section class="case-studies">
+      <div class="container">
+        <h2>Case Studies</h2>
+        
+        <div class="case-study-cards">
+          <div class="case-study-card">
+            <div class="case-study-image">
+              <img src="https://via.placeholder.com/400x200" alt="Case study 1">
+            </div>
+            <div class="case-study-content">
+              <h3>Case Study 1: Early Detection Success</h3>
+              <p>How our AI system helped detect early-stage pneumonia in a challenging case that was initially missed.</p>
+              <button class="btn btn-outline btn-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                  <polyline points="10 9 9 9 8 9"></polyline>
+                </svg>
+                Read Full Case Study
+              </button>
+            </div>
+          </div>
+          
+          <div class="case-study-card">
+            <div class="case-study-image">
+              <img src="https://via.placeholder.com/400x200" alt="Case study 2">
+            </div>
+            <div class="case-study-content">
+              <h3>Case Study 2: Early Detection Success</h3>
+              <p>How our AI system helped detect early-stage pneumonia in a challenging case that was initially missed.</p>
+              <button class="btn btn-outline btn-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                  <polyline points="10 9 9 9 8 9"></polyline>
+                </svg>
+                Read Full Case Study
+              </button>
+            </div>
+          </div>
+          
+          <div class="case-study-card">
+            <div class="case-study-image">
+              <img src="https://via.placeholder.com/400x200" alt="Case study 3">
+            </div>
+            <div class="case-study-content">
+              <h3>Case Study 3: Early Detection Success</h3>
+              <p>How our AI system helped detect early-stage pneumonia in a challenging case that was initially missed.</p>
+              <button class="btn btn-outline btn-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                  <polyline points="10 9 9 9 8 9"></polyline>
+                </svg>
+                Read Full Case Study
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta">
+      <div class="container">
+        <h2>Ready to Enhance Your Pneumonia Diagnosis?</h2>
+        <p>Schedule a demonstration or speak with our medical AI specialists to learn how our pneumonia prediction system can benefit your practice.</p>
+        <div class="cta-buttons">
+          <button class="btn btn-secondary btn-lg">Request a Demo</button>
+          <button class="btn btn-outline-white btn-lg">Contact Sales</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h2>AI Radiology</h2>
+          <p>Advancing healthcare through artificial intelligence and medical imaging.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Twitter">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+              </svg>
+            </a>
+            <a href="#" aria-label="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="pneumonia-prediction.html">Pneumonia Prediction</a></li>
+            <li><a href="brain-tumor.html">Brain Tumor Detection</a></li>
+            <li><a href="cancer-detection.html">Cancer Detection</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Resources</h3>
+          <ul>
+            <li><a href="research.html">Research Papers</a></li>
+            <li><a href="case-studies.html">Case Studies</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Contact Us</h3>
+          <ul class="contact-info">
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span>123 Medical Center Dr, Healthcare City, HC 12345</span>
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+              <span>+1 (555) 123-4567</span>
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+              </svg>
+              <span>info@airadiology.com</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; <span id="current-year"></span> AI Radiology. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -120,4 +120,4 @@ def cancer_detection():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=Falsr,host='0,0,0,0')

@@ -1,4 +1,4 @@
-setuptools>=42
+setuptools>=60
 wheel
 Flask==2.3.2
 numpy==1.24.3
